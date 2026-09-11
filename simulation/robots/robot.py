@@ -50,3 +50,7 @@ class Robot:
         self.learned_skills.append(
         skill
     )
+        self.experience_count = 0
+    def increment_experience(self):
+
+        self.experience_count += 1
