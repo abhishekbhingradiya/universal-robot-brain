@@ -13,6 +13,8 @@ class Robot:
 
         self.learned_skills = []
 
+        self.active_skill_versions = {}
+
         self.experience_count = 0
 
     def generate_experience(self):
@@ -51,6 +53,20 @@ class Robot:
             skill
         )
 
+        skill_name = skill.get(
+            "name",
+            "unknown_skill"
+        )
+
+        skill_version = skill.get(
+            "version",
+            1
+        )
+
+        self.active_skill_versions[
+            skill_name
+        ] = skill_version
+
     def inherit_network_memory(self):
 
         skills = get_global_skills()
@@ -65,6 +81,25 @@ class Robot:
 
         self.experience_count += 1
 
+    def upgrade_skill(
+        self,
+        skill_name,
+        version
+    ):
+
+        self.active_skill_versions[
+            skill_name
+        ] = version
+
+    def get_active_version(
+        self,
+        skill_name
+    ):
+
+        return self.active_skill_versions.get(
+            skill_name
+        )
+
     def get_skill_count(self):
 
         return len(
@@ -78,5 +113,7 @@ class Robot:
             "experience_count":
                 self.experience_count,
             "skill_count":
-                len(self.learned_skills)
+                len(self.learned_skills),
+            "active_skill_versions":
+                self.active_skill_versions
         }
