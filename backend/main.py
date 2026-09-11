@@ -1,5 +1,7 @@
 from fastapi import FastAPI
-
+from backend.api.v1.dashboard import (
+    router as dashboard_router
+)
 from backend.api.skills.routes import (
     router as skill_router
 )
@@ -74,4 +76,9 @@ app.include_router(
     robot_router,
     prefix="/api/v1",
     tags=["Robot API"]
+)
+app.include_router(
+    dashboard_router,
+    prefix="/api/v1",
+    tags=["Dashboard"]
 )
