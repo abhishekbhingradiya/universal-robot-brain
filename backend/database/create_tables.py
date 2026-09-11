@@ -6,6 +6,10 @@ from backend.models.orm.skill_model import (
     SkillModel
 )
 
+from backend.models.orm.robot_model import (
+    RobotModel
+)
+
 from backend.database.engine import (
     engine
 )

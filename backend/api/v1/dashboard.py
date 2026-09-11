@@ -4,7 +4,14 @@ from backend.services.network_memory import (
     get_global_skills
 )
 
+from backend.services.robot_service import (
+    RobotService
+)
+
+
 router = APIRouter()
+
+robot_service = RobotService()
 
 
 @router.get("/dashboard/overview")
@@ -14,6 +21,7 @@ def dashboard_overview():
 
     return {
         "total_skills": len(skills),
+        "total_robots": robot_service.get_robot_count(),
         "network_status": "active"
     }
 
