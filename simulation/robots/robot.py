@@ -1,4 +1,5 @@
 import random
+from backend.models import skill
 from backend.services.network_memory \
     import get_global_skills
 
@@ -41,4 +42,11 @@ class Robot:
      for skill in skills:
 
         self.learned_skills.append(skill)
-   
+
+    def install_skill(
+        self,
+        skill):
+
+        self.learned_skills.append(
+        skill
+    )
