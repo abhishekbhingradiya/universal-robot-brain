@@ -44,6 +44,10 @@ consensus = ConsensusEngine()
 best = consensus.get_best_strategy(
     skills
 )
+from backend.services.network_memory \
+    import save_global_skill
+
+save_global_skill(best)
 
 print()
 print("GLOBAL BEST STRATEGY")

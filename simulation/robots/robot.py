@@ -1,5 +1,6 @@
 import random
-
+from backend.services.network_memory \
+    import get_global_skills
 
 class Robot:
 
@@ -32,3 +33,12 @@ class Robot:
     def learn_skill(self, skill):
 
         self.learned_skills.append(skill)
+
+    def inherit_network_memory(self):
+
+     skills = get_global_skills()
+
+     for skill in skills:
+
+        self.learned_skills.append(skill)
+   
