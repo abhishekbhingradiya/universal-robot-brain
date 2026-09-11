@@ -1,5 +1,7 @@
 from backend.database.db import get_connection
 
+from backend.logger import logger
+
 
 def save_global_skill(skill):
 
@@ -20,7 +22,14 @@ def save_global_skill(skill):
     )
 
     conn.commit()
+
     conn.close()
+
+    logger.info(
+        f"Saved global skill: "
+        f"{skill['strategy']} "
+        f"(reward={skill['avg_reward']})"
+    )
 
 
 def get_global_skills():
@@ -38,5 +47,9 @@ def get_global_skills():
     ).fetchall()
 
     conn.close()
+
+    logger.info(
+        f"Loaded {len(rows)} global skills"
+    )
 
     return rows
