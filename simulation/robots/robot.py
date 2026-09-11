@@ -1,52 +1,151 @@
 import random
-from backend.models import skill
-from backend.services.network_memory \
-    import get_global_skills
+
+from backend.services.network_memory import (
+    get_global_skills
+)
+
+from backend.logger import logger
+
 
 class Robot:
 
     def __init__(self, robot_id):
 
         self.robot_id = robot_id
+
         self.learned_skills = []
+
+        self.active_skill_versions = {}
+
+        self.experience_count = 0
+
+        logger.info(
+            f"Robot created: {robot_id}"
+        )
 
     def generate_experience(self):
 
         strategies = {
-            "left_wall": 0.70,
-            "right_wall": 0.55,
-            "random_walk": 0.40
+            "left_wall": random.uniform(0.65, 0.75),
+            "right_wall": random.uniform(0.50, 0.65),
+            "random_walk": random.uniform(0.30, 0.55)
         }
 
         strategy = random.choice(
             list(strategies.keys())
         )
 
+        reward = strategies[strategy]
+
+        logger.info(
+            f"{self.robot_id} generated experience "
+            f"using {strategy}"
+        )
+
+        self.experience_count += 1
+
         return {
             "robot_id": self.robot_id,
             "task": "maze_navigation",
             "strategy": strategy,
-            "reward": strategies[strategy],
-            "success": random.random()
-            < strategies[strategy]
+            "reward": reward,
+            "success": random.random() < reward
         }
 
     def learn_skill(self, skill):
 
-        self.learned_skills.append(skill)
+        self.learned_skills.append(
+            skill
+        )
+
+        logger.info(
+            f"{self.robot_id} learned skill"
+        )
+
+    def install_skill(self, skill):
+
+        self.learned_skills.append(
+            skill
+        )
+
+        skill_name = skill.get(
+            "name",
+            "unknown_skill"
+        )
+
+        skill_version = skill.get(
+            "version",
+            1
+        )
+
+        self.active_skill_versions[
+            skill_name
+        ] = skill_version
+
+        logger.info(
+            f"{self.robot_id} installed "
+            f"{skill_name} v{skill_version}"
+        )
 
     def inherit_network_memory(self):
 
-     skills = get_global_skills()
+        skills = get_global_skills()
 
-     for skill in skills:
+        for skill in skills:
 
-        self.learned_skills.append(skill)
+            self.learned_skills.append(
+                skill
+            )
 
-    def install_skill(
+        logger.info(
+            f"{self.robot_id} inherited "
+            f"{len(skills)} network skills"
+        )
+
+    def increment_experience(self):
+
+        self.experience_count += 1
+
+    def upgrade_skill(
         self,
-        skill):
+        skill_name,
+        version
+    ):
 
-        self.learned_skills.append(
-        skill
-    )
+        self.active_skill_versions[
+            skill_name
+        ] = version
+
+        logger.info(
+            f"{self.robot_id} upgraded "
+            f"{skill_name} to v{version}"
+        )
+
+    def get_active_version(
+        self,
+        skill_name
+    ):
+
+        return self.active_skill_versions.get(
+            skill_name
+        )
+
+    def get_skill_count(self):
+
+        return len(
+            self.learned_skills
+        )
+
+    def get_status(self):
+
+        return {
+            "robot_id": self.robot_id,
+            "experience_count":
+                self.experience_count,
+            "skill_count":
+                len(
+                    self.learned_skills
+                ),
+            "active_skill_versions":
+                self.active_skill_versions
+        }

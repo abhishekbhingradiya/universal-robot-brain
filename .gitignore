@@ -1,0 +1,45 @@
+# Python
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+.venv/
+venv/
+env/
+
+# SQLite
+
+*.db
+
+# Environment
+
+.env
+
+# Pytest
+
+.pytest_cache/
+
+# VS Code
+
+.vscode/
+
+# IntelliJ
+
+.idea/
+
+# Build
+
+dist/
+build/
+
+# Node
+
+node_modules/
+
+# OS
+
+.DS_Store
+Thumbs.db
