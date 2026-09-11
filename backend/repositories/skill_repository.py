@@ -6,6 +6,8 @@ from backend.models.orm.skill_model import (
     SkillModel
 )
 
+from backend.logger import logger
+
 
 class SkillRepository:
 
@@ -30,6 +32,10 @@ class SkillRepository:
 
             session.commit()
 
+            logger.info(
+                f"Saved skill: {strategy}"
+            )
+
             return skill
 
         finally:
@@ -42,9 +48,15 @@ class SkillRepository:
 
         try:
 
-            return session.query(
+            skills = session.query(
                 SkillModel
             ).all()
+
+            logger.info(
+                f"Loaded {len(skills)} skills"
+            )
+
+            return skills
 
         finally:
 

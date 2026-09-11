@@ -5,5 +5,6 @@ from backend.database.engine import (
 )
 
 SessionLocal = sessionmaker(
-    bind=engine
+    bind=engine,
+    expire_on_commit=False
 )
