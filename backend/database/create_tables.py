@@ -21,7 +21,9 @@ from backend.models.orm.federation_node_model import (
 from backend.database.engine import (
     engine
 )
-
+from backend.models.orm.activity_model import (
+    ActivityModel
+)
 
 Base.metadata.create_all(
     bind=engine

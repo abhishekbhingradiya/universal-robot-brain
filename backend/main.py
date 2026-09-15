@@ -31,6 +31,10 @@ from backend.api.v1.experiences import (
 from backend.api.v1.federation import (
     router as federation_router
 )
+from backend.api.v1.activity import (
+    router as activity_router
+)
+
 app = FastAPI(
     title="Universal Robot Brain",
     version="0.3"
@@ -95,4 +99,9 @@ app.include_router(
     federation_router,
     prefix="/api/v1",
     tags=["Federation API"]
+)
+app.include_router(
+    activity_router,
+    prefix="/api/v1",
+    tags=["Activity API"]
 )
