@@ -24,7 +24,9 @@ from backend.database.engine import (
 from backend.models.orm.activity_model import (
     ActivityModel
 )
-
+from backend.models.orm.skill_history_model import (
+    SkillHistoryModel
+)
 Base.metadata.create_all(
     bind=engine
 )
