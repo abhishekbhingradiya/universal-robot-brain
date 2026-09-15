@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        URB - Skills
+    </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+
+        <aside
+            class="w-64 bg-slate-900 border-r border-slate-800"
+        >
+
+            <div class="p-6">
+
+                <h1
+                    class="text-2xl font-bold text-cyan-400"
+                >
+                    URB
+                </h1>
+
+                <p
+                    class="text-slate-400 text-sm"
+                >
+                    Universal Robot Brain
+                </p>
+
+            </div>
+
+            <nav class="px-4 space-y-2">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="robots.html"
+                    class="nav-link"
+                >
+                    Robots
+                </a>
+
+                <a
+                    href="skills.html"
+                    class="nav-link-active"
+                >
+                    Skills
+                </a>
+
+                <a
+                    href="experiences.html"
+                    class="nav-link"
+                >
+                    Experiences
+                </a>
+
+                <a
+                    href="federation.html"
+                    class="nav-link"
+                >
+                    Federation
+                </a>
+
+                <a
+                    href="graph.html"
+                    class="nav-link"
+                >
+                    Knowledge Graph
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <main class="flex-1 overflow-auto">
+
+            <header
+                class="border-b border-slate-800 p-6"
+            >
+
+                <h2
+                    class="text-3xl font-bold"
+                >
+                    Skill Evolution Center
+                </h2>
+
+                <p
+                    class="text-slate-400 mt-2"
+                >
+                    Collective Intelligence Evolution
+                </p>
+
+            </header>
+
+            <div class="p-6 space-y-6">
+
+                <div class="card">
+
+                    <h3
+                        class="text-xl font-semibold mb-4"
+                    >
+                        Top Skills
+                    </h3>
+
+                    <table class="w-full">
+
+                        <thead>
+
+                            <tr
+                                class="text-left text-slate-400"
+                            >
+
+                                <th class="pb-4">
+                                    Strategy
+                                </th>
+
+                                <th class="pb-4">
+                                    Fitness
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="skills-body"
+                        >
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="card">
+
+                    <h3
+                        class="text-xl font-semibold mb-4"
+                    >
+                        Skill Timeline
+                    </h3>
+
+                    <div
+                        class="flex gap-4 mb-4"
+                    >
+
+                        <input
+                            id="skill-name"
+                            type="text"
+                            placeholder="left_wall"
+                            class="input"
+                        >
+
+                        <button
+                            onclick="loadTimeline()"
+                            class="btn-primary"
+                        >
+                            Load Timeline
+                        </button>
+
+                    </div>
+
+                    <table class="w-full">
+
+                        <thead>
+
+                            <tr
+                                class="text-left text-slate-400"
+                            >
+
+                                <th class="pb-4">
+                                    Version
+                                </th>
+
+                                <th class="pb-4">
+                                    Fitness
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="timeline-body"
+                        >
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="card">
+
+                    <h3
+                        class="text-xl font-semibold mb-4"
+                    >
+                        Trigger Evolution
+                    </h3>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-4"
+                    >
+
+                        <input
+                            id="evolve-skill"
+                            type="text"
+                            placeholder="left_wall"
+                            class="input"
+                        >
+
+                        <input
+                            id="evolve-fitness"
+                            type="number"
+                            step="0.01"
+                            placeholder="0.97"
+                            class="input"
+                        >
+
+                    </div>
+
+                    <button
+                        onclick="evolveSkill()"
+                        class="btn-primary mt-4"
+                    >
+                        Evolve Skill
+                    </button>
+
+                    <pre
+                        id="evolution-result"
+                        class="mt-4 bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-auto"
+                    ></pre>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/skills.js"></script>
+
+</body>
+</html>

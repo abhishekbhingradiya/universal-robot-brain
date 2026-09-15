@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>URB - Knowledge Graph</title>
+
+    <script src="https://cdn.tailwindcss.com"></script    rel="stylesheet"
+       g-slate-950 text-white">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+
+        <!-- Sidebar -->
+
+        <aside
+            class="w-64 bg-slate-900 border-r border-slate-800"
+        >
+
+            <div class="p-6">
+
+                <h1
+                    class="text-2xl font-bold text-cyan-400"
+                >
+                    URB
+                </h1>
+
+                <p
+                    class="text-slate-400 text-sm"
+                >
+                    Universal Robot Brain
+                </p>
+
+            </div>
+
+            <nav class="px-4 space-y-2">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                robots.html
+                    Robots
+                </a>
+
+                <a
+                    href="skills.html"
+                    class="nav-link"
+                >
+                    Skills
+                </a>
+
+                <a
+                    href="experiences.html"
+                    class="nav-link"
+                >
+                    Experiences
+                </a>
+
+                federation.html
+                    Federation
+                </a>
+
+                <a
+ph.html
+                    Knowledge Graph
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+
+        <main class="flex-1 overflow-auto">
+
+            <header
+                class="border-b border-slate-800 p-6"
+            >
+
+                <h2
+                    class="text-3xl font-bold"
+                >
+                    Knowledge Graph
+                </h2>
+
+                <p
+                    class="text-slate-400 mt-2"
+                >
+                    Relationships between robots, skills, experiences and federation nodes
+                </p>
+
+            </header>
+
+            <div class="p-6 space-y-6">
+
+                <!-- Graph Stats -->
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-4"
+                >
+
+                    <div class="card">
+
+                        <h3>
+                            Nodes
+                        </h3>
+
+                        <p
+                            id="node-count"
+                            class="stat"
+                        >
+                            0
+                        </p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>
+                            Relationships
+                        </h3>
+
+                        <p
+                            id="edge-count"
+                            class="stat"
+                        >
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Nodes Table -->
+
+                <div class="card">
+
+                    <h3
+                        class="text-xl font-semibold mb-4"
+                    >
+                        Nodes
+                    </h3>
+
+                    <table class="w-full">
+
+                        <thead>
+
+                            <tr
+                                class="text-left text-slate-400"
+                            >
+
+                                <th class="pb-4">
+                                    ID
+                                </th>
+
+                                <th class="pb-4">
+                                    Type
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="nodes-body"
+                        >
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- Edges Table -->
+
+                <div class="card">
+
+                    <h3
+                        class="text-xl font-semibold mb-4"
+                    >
+                        Relationships
+                    </h3>
+
+                    <table class="w-full">
+
+                        <thead>
+
+                            <tr
+                                class="text-left text-slate-400"
+                            >
+
+                                <th class="pb-4">
+                                    Source
+                                </th>
+
+                                <th class="pb-4">
+                                    Target
+                                </th>
+
+                                <th class="pb-4">
+                                    Relationship
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="edges-body"
+                        >
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    js/api.jsscript>
+    js/graph.jsscript>
+
+</body>
+
+</html>
