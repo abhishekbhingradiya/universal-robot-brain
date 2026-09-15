@@ -37,6 +37,9 @@ from backend.api.v1.activity import (
 from backend.api.v1.graph import (
     router as graph_router
 )
+from backend.api.v1.dashboard_analytics import (
+    router as dashboard_analytics_router
+)
 
 app = FastAPI(
     title="Universal Robot Brain",
@@ -112,4 +115,9 @@ app.include_router(
     graph_router,
     prefix="/api/v1",
     tags=["Knowledge Graph"]
+)
+app.include_router(
+    dashboard_analytics_router,
+    prefix="/api/v1",
+    tags=["Dashboard Analytics"]
 )
