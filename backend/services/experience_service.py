@@ -2,6 +2,10 @@ from backend.repositories.experience_repository import (
     ExperienceRepository
 )
 
+from backend.services.activity_service import (
+    ActivityService
+)
+
 
 class ExperienceService:
 
@@ -9,6 +13,10 @@ class ExperienceService:
 
         self.repo = (
             ExperienceRepository()
+        )
+
+        self.activity_service = (
+            ActivityService()
         )
 
     def create_experience(
@@ -19,12 +27,20 @@ class ExperienceService:
         reward
     ):
 
-        return self.repo.create(
-            robot_id,
-            task,
-            strategy,
-            reward
+        experience = (
+            self.repo.create(
+                robot_id,
+                task,
+                strategy,
+                reward
+            )
         )
+
+        self.activity_service.log_experience_created(
+            robot_id
+        )
+
+        return experience
 
     def get_experiences(self):
 

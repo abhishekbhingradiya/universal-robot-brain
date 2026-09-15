@@ -2,6 +2,10 @@ from backend.repositories.robot_repository import (
     RobotRepository
 )
 
+from backend.services.activity_service import (
+    ActivityService
+)
+
 
 class RobotService:
 
@@ -9,16 +13,26 @@ class RobotService:
 
         self.repo = RobotRepository()
 
+        self.activity_service = (
+            ActivityService()
+        )
+
     def register_robot(
         self,
         robot_id,
         robot_type="general"
     ):
 
-        return self.repo.create(
+        robot = self.repo.create(
             robot_id,
             robot_type
         )
+
+        self.activity_service.log_robot_registered(
+            robot_id
+        )
+
+        return robot
 
     def get_robots(
         self

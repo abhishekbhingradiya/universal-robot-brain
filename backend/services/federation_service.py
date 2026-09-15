@@ -2,6 +2,10 @@ from backend.repositories.federation_repository import (
     FederationRepository
 )
 
+from backend.services.activity_service import (
+    ActivityService
+)
+
 
 class FederationService:
 
@@ -9,16 +13,26 @@ class FederationService:
 
         self.repo = FederationRepository()
 
+        self.activity_service = (
+            ActivityService()
+        )
+
     def create_node(
         self,
         node_id,
         region
     ):
 
-        return self.repo.create(
+        node = self.repo.create(
             node_id,
             region
         )
+
+        self.activity_service.log_federation_created(
+            node_id
+        )
+
+        return node
 
     def get_nodes(self):
 
