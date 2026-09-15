@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>URB - Robots</title>
+
+    https://cdn.tailwindcss.comscript>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css">
+</head>
+
+<body class="bg-slaten">
+
+        <!-- Sidebar -->
+
+        <aside
+            class="w-64 bg-slate-900 border-r border-slate-800">
+
+            <div class="p-6">
+
+                <h1
+                    class="text-2xl font-bold text-cyan-400">
+
+                    URB
+
+                </h1>
+
+                <p
+                    class="text-slate-400 text-sm">
+
+                    Universal Robot Brain
+
+                </p>
+
+            </div>
+
+            <nav class="px-4 space-y-2">
+
+                <a
+                    href="index.html"
+                    class="nav-link">
+
+                    Dashboard
+
+                </a>
+
+                robots.html
+
+                    Robots
+
+                </a>
+
+                skills.html
+
+                    Skills
+
+                </a>
+
+                experiences.html
+
+                    Experiences
+
+                </a>
+
+                federation.html
+
+                    Federation
+
+                </a>
+
+                <a
+                    href="graph.html"
+                    class="nav-link">
+
+                    Knowledge Graph
+
+                </     <main class="flex-1 overflow-auto">
+
+            <header
+                class="border-b border-slate-800 p-6">
+
+                <h2
+                    class="text-3xl font-bold">
+
+                    Robot Registry
+
+                </h2>
+
+                <p
+                    class="text-slate-400 mt-1">
+
+                    Manage robots connected to URB
+
+                </p>
+
+            </header>
+
+            <div class="p-6 space-y-6">
+
+                <!-- Robot Count -->
+
+                <div class="card">
+
+                    <h3>Total Robots</h3>
+
+                    <p
+                        id="robot-count"
+                        class="stat">
+
+                        0
+
+                    </p>
+
+                </div>
+
+                <!-- Create Robot -->
+
+                <div class="card">
+
+                    <h3
+                        class="text-lg font-semibold mb-4">
+
+                        Register Robot
+
+                    </h3>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <input
+                            id="robot-id"
+                            type="text"
+                            placeholder="robot-101"
+                            class="input">
+
+                        <input
+                            id="robot-type"
+                            type="text"
+                            placeholder="explorer"
+                            class="input">
+
+                        <button
+                            onclick="createRobot()"
+                            class="btn-primary">
+
+                            Register
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Robot Table -->
+
+                <div
+                    class="bg-slate-900 rounded-xl border border-slate-800">
+
+                    <div
+                        class="p-6 border-b border-slate-800">
+
+                        <h3
+                            class="text-xl font-semibold">
+
+                            Registered Robots
+
+                        </h3>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <table class="w-full">
+
+                            <thead>
+
+                                <tr
+                                    class="text-left text-slate-400">
+
+                                    <th>ID</th>
+                                    <th>Robot ID</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody
+                                id="robots-body">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    js/api.jsscript>
+
+    js/robots.jsscript>
+
+</body>
+
+</html>

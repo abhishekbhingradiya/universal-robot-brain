@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universal Robot Brain</title>
+
+    <!-- Tailwind CDN -->
+    https://cdn.tailwindcss.comscript>
+
+    <!-- Custom Styles -->
+    css/styles.css
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-900 border-r border-slate-800">
+
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-cyan-400">
+                    URB
+                </h1>
+
+                <p class="text-slate-400 text-sm">
+                    Universal Robot Brain
+                </p>
+            </div>
+
+            <nav class="px-4 space-y-2">
+
+                <a
+                    href="index.html"
+                    class="block px-4 py-3 rounded-lg bg-cyan-500 text-black font-semibold"
+                >
+                    Dashboard
+                </a>
+
+                robots.html
+                    Robots
+                </a>
+
+                skills.html
+                    Skills
+                </a>
+
+                experiences.html
+                    Experiences
+                </a>
+
+                <a
+                    href="federation.html"
+                    class="block       <a
+                    href="graph.html"
+                    class="block px-4 py-3 rounded-lg hoverside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+
+            <!-- Header -->
+            <header class="border-b border-slate-800 p-6">
+
+                <h2 class="text-3xl font-bold">
+                    Dashboard
+                </h2>
+
+                <p class="text-slate-400 mt-2">
+                    Universal Robot Brain Control Center
+                </p>
+
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="p-6">
+
+                <!-- Metrics -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6 mb-8"
+                >
+
+                    <div class="card">
+                        <h3>Robots</h3>
+                        <p id="robots-count" class="stat">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Skills</h3>
+                        <p id="skills-count" class="stat">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Experiences</h3>
+                        <p id="experiences-count" class="stat">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Federation</h3>
+                        <p id="federation-count" class="stat">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Status</h3>
+                        <p id="network-status" class="stat">
+                            ACTIVE
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Activity Feed -->
+                <div
+                    class="bg-slate-900 rounded-xl border border-slate-800"
+                >
+
+                    <div class="p-6 border-b border-slate-800">
+
+                        <h3 class="text-xl font-semibold">
+                            Recent Activity
+                        </h3>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <table class="w-full">
+
+                            <thead>
+
+                                <tr class="text-left text-slate-400">
+
+                                    <th class="pb-4">
+                                        ID
+                                    </th>
+
+                                    <th class="pb-4">
+                                        Event Type
+                                    </th>
+
+                                    <th class="pb-4">
+                                        Entity
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="activity-body">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    js/api.jsscript>
+    js/dashboard.jsscript>
+
+</body>
+</html>
