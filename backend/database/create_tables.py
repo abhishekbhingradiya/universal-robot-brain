@@ -14,6 +14,10 @@ from backend.models.orm.experience_model import (
     ExperienceModel
 )
 
+from backend.models.orm.federation_node_model import (
+    FederationNodeModel
+)
+
 from backend.database.engine import (
     engine
 )

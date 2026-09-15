@@ -12,6 +12,10 @@ from backend.services.experience_service import (
     ExperienceService
 )
 
+from backend.services.federation_service import (
+    FederationService
+)
+
 
 router = APIRouter()
 
@@ -19,6 +23,10 @@ robot_service = RobotService()
 
 experience_service = (
     ExperienceService()
+)
+
+federation_service = (
+    FederationService()
 )
 
 
@@ -38,6 +46,9 @@ def dashboard_overview():
 
         "total_experiences":
             experience_service.get_experience_count(),
+
+        "federation_nodes":
+            federation_service.get_node_count(),
 
         "network_status":
             "active"
