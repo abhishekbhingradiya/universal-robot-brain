@@ -25,7 +25,9 @@ from backend.api.v1.network import (
 from backend.api.v1.robots import (
     router as robot_router
 )
-
+from backend.api.v1.experiences import (
+    router as experience_router
+)
 
 app = FastAPI(
     title="Universal Robot Brain",
@@ -81,4 +83,9 @@ app.include_router(
     dashboard_router,
     prefix="/api/v1",
     tags=["Dashboard"]
+)
+app.include_router(
+    experience_router,
+    prefix="/api/v1",
+    tags=["Experience API"]
 )

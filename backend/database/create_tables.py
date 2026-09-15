@@ -10,6 +10,10 @@ from backend.models.orm.robot_model import (
     RobotModel
 )
 
+from backend.models.orm.experience_model import (
+    ExperienceModel
+)
+
 from backend.database.engine import (
     engine
 )
